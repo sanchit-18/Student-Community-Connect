@@ -25,7 +25,7 @@
 			if (user_exists($username, $db)) { array_push($errors, "Username already exists");}
 			
 			if (empty($password)) { array_push($errors, "Password is required"); }
-			if (strlen($password) < 3) { array_push($errors, "Password must have 4 or more characters"); }
+			if (strlen($password) < 4) { array_push($errors, "Password must have 4 or more characters"); }
 			if (spaces($password)) { array_push($errors, "Password cannot have spaces"); }
 
 			if (empty($usertype)) { array_push($errors, "User Type is required"); }
