@@ -3,8 +3,11 @@
 	//error_reporting(E_ALL);
 	//ini_set("display_errors","On");
 	
-	require 'dbconnect.php';
+	require_once 'dbconnect.php';
 	require_once 'NewUser.php';
+
+	session_start();
+	//var_dump($_SESSION);
 
 	$errors = array();
 
@@ -19,14 +22,14 @@
 		$usertype = $_POST['usertype'];
 
 		$newuser = new NewUser();
-		$errors = $newuser->validate($fullname, $gender, $age, $org, $email, $username, $password, $usertype);
+		$errors = $newuser->validate($fullname, $gender, $age, $org, $email, $username, $password, $usertype, $db);
 
 		if (count($errors) == 0) {
 		  	$query = "INSERT INTO user (fullname, gender, age, org, email, username, password, usertype) 
 		  			VALUES('$fullname', '$gender', $age, '$org', '$email', '$username', '$password', '$usertype')";
 		  	mysqli_query($db, $query);
 		  	$_SESSION['username'] = $username;
-		  	header("location: profile.php"); */
+		  	header("location: profile.php");
 		}
 	}
 ?>
