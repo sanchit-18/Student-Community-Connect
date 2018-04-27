@@ -2,7 +2,7 @@
 
     require 'SearchPG.php';
  
-    class PGVacancyTest extends PHPUnit_Framework_TestCase {
+    class SearchPGTest extends PHPUnit_Framework_TestCase {
         private $searchpg;
      
         protected function setUp() { $this->searchpg = new SearchPG(); }
